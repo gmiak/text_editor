@@ -16,3 +16,10 @@ module.exports = function(app) {
     })
   );
 };
+app.use(
+  '/document',
+  createProxyMiddleware({
+    target: 'https://jsramverk-editor-geka16.herokuapp.com',
+    changeOrigin: true,
+  })
+);
