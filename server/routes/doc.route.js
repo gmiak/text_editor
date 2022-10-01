@@ -11,4 +11,19 @@ router.get("/", async (req, res) => {
     });
 });
 
+router.post("/create", async (req, res) => {
+    const doc = await req.body;
+    if (doc.title) {
+        const add = await docModel.addDoc(doc);
+        res.status(201).json({ data: result});
+    } else {
+        return res.status(400).json({
+            errors: {
+                message: "Title is missing, please try again.",
+            },
+        });
+    }
+
+});
+
 module.exports = router;

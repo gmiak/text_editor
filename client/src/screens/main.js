@@ -3,6 +3,7 @@ import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
 import "primereact/resources/primereact.min.css";                  //core css
 import "primeicons/primeicons.css";
 import "../styles/App.css"
+import "../styles/home.css";
 import  Editor  from './editor';
 import { TabMenu } from 'primereact/tabmenu';
 import { Sidebar } from 'primereact/sidebar';

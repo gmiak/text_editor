@@ -17,7 +17,7 @@ function Files() {
       .then((data) => setDocs(data));
 
   }, []);
-  console.log(docs.data);
+  
   return (
 
     <div className='containtBody'>
