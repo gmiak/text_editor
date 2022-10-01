@@ -1,4 +1,5 @@
 import React from 'react';
+import { Divider } from 'primereact/divider';
 // @flow
 
 /*
@@ -8,21 +9,30 @@ import React from 'react';
 
 function Files() {
 
-  const [data, setData] = React.useState(null);
+  const [docs, setDocs] = React.useState([]);
 
   React.useEffect(() => {
-    fetch("/api")
+    fetch("/document")
       .then((res) => res.json())
-      .then((data) => setData(data.message));
+      .then((data) => setDocs(data));
+
   }, []);
-  
+  console.log(docs.data);
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>{!data ? "Loading..." : "Here in files "+ data}</p>
-      </header>
+
+    <div className='containtBody'>
+      {!docs.data ? "Download..." : docs.data.map((document, index) => (
+        <><h3>{document.title}</h3>
+          <h6>Created: {document.created}</h6>
+          <h6>Last update: {document.lasteUpdate}</h6>
+          <h6>Text:</h6>
+          <p className="text_align"> {document.text}</p>
+          {index === docs.data.length - 1 ? <p></p> : <Divider />}
+        </>
+      ))}
     </div>
   );
+
 }
 
 export default Files;
