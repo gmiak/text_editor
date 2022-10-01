@@ -14,7 +14,7 @@ client/.pnp.js
 .env.development.local
 .env.test.local
 .env.production.local
-.env
+
 
 client/.DS_Store
 client/.env.local
