@@ -33,6 +33,23 @@ export class UpdateDoc extends Component {
             .then((data) => this.setState({ docs: data }));
     }
 
+    async updateDocument(id, text) {
+        const response = await fetch("/document/update/"+id, {
+            method: "POST",
+            headers: { "content-type": "application/json", },
+            body: JSON.stringify({
+                text: text
+            }),
+        });
+        const data = await response.json();
+        this.refreshDocumentList();
+    }
+
+    async deleteDocument(id) {
+        const response = await fetch("/document/delete/"+id, {
+            method: "DELETE",});
+            this.refreshDocumentList();
+    }
 
     renderHeader() {
         return (
@@ -52,7 +69,7 @@ export class UpdateDoc extends Component {
         })
     }
 
-    editModeOff(data) {
+    editModeOff() {
         this.setState({
             editMode: false,
             text2: "",
@@ -77,7 +94,7 @@ export class UpdateDoc extends Component {
                 </div>
 
                 <div className="product-action">
-                    <><p><ButtonPrimereact label="Delete" icon="pi pi-trash" onClick={(event) => { this.deleteDocument(data.id) }} /></p><ButtonPrimereact icon="pi pi-pencil" label="Update" onClick={(event) => { this.editModeOn(data) }}></ButtonPrimereact></>
+                    <><p><ButtonPrimereact icon="pi pi-pencil" label="Update" onClick={(event) => { this.editModeOn(data) }}></ButtonPrimereact></p><ButtonPrimereact className='deleteBtn' label="Delete" icon="pi pi-trash" onClick={(event) => { this.deleteDocument(data.id) }} /></>
                 </div>
             </div>
         );
@@ -108,7 +125,8 @@ export class UpdateDoc extends Component {
                         <ButtonGroup className="me-2" aria-label="Second group">
                             <Button onClick={async (event) => {
                                 event.preventDefault();
-                                props.updateDoc(this.state.data.id, this.state.text2)
+                                this.updateDocument(this.state.doc._id, this.state.text2);
+                                this.editModeOff();
                             }}>Save</Button> {/*<Button>6</Button> <Button>7</Button>*/}
                         </ButtonGroup>
                     </ButtonToolbar>

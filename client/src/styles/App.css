@@ -85,3 +85,13 @@
 .div_text {
   padding: 30px;
 }
+
+.deleteBtn {
+  background-color: #de5d83;
+  border: #de5d83;
+}
+.deleteBtn:hover {
+  background-color: #de5d83;
+  background: #de5d83;
+  color: #de5d83;
+}

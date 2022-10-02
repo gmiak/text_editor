@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
 import "primereact/resources/primereact.min.css";                  //core css
 import "primeicons/primeicons.css";
-import "../styles/App.css"
-import "../styles/home.css";
 import CreateDoc from './create';
 import UpdateDoc from './update';
 import { TabMenu } from 'primereact/tabmenu';
@@ -14,6 +12,8 @@ import { Divider } from 'primereact/divider';
 import Home from './home';
 import Report from './report';
 import Files from './files';
+import "../styles/App.css"
+import "../styles/home.css";
 // @flow
 
 export class Main extends React.Component {
