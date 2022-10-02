@@ -1,21 +1,22 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
 import "primereact/resources/primereact.min.css";                  //core css
 import "primeicons/primeicons.css";
 import "../styles/App.css"
 import "../styles/home.css";
-import  Editor  from './editor';
+import CreateDoc from './create';
+import UpdateDoc from './update';
 import { TabMenu } from 'primereact/tabmenu';
 import { Sidebar } from 'primereact/sidebar';
 import { Button } from 'primereact/button';
 import { PanelMenu } from 'primereact/panelmenu';
 import { Divider } from 'primereact/divider';
-import  Home  from './home';
-import  Report  from './report';
-import  Files  from './files';
+import Home from './home';
+import Report from './report';
+import Files from './files';
 // @flow
 
-export class  Main extends React.Component {
+export class Main extends React.Component {
 
     index;
 
@@ -33,10 +34,12 @@ export class  Main extends React.Component {
             case 0:
                 return <Home />;
             case 1:
-                return <Editor />;
+                return <CreateDoc />;
             case 2:
-                return <Files />;
+                return <UpdateDoc />;
             case 3:
+                return <Files />;
+            case 4:
                 return <Report />;
         }
     }
@@ -48,9 +51,10 @@ export class  Main extends React.Component {
 
         const items = [
             { label: 'Home', icon: 'pi pi-fw pi-home', command: () => { this.index = 0; setVisibleRight(false) } },
-            { label: 'Edit', icon: 'pi pi-fw pi-pencil', command: () => { this.index = 1; setVisibleRight(false) } },
+            { label: 'Create', icon: 'pi pi-fw pi-plus', command: () => { this.index = 1; setVisibleRight(false) } },
+            { label: 'Update', icon: 'pi pi-fw pi-pencil', command: () => { this.index = 2; setVisibleRight(false) } },
             { label: 'Files', icon: 'pi pi-fw pi-file', command: () => { this.index = 3; setVisibleRight(false) } },
-            { label: 'Report', icon: 'pi pi-fw pi-comment', command: () => { this.index = 2; setVisibleRight(false) } },
+            { label: 'Report', icon: 'pi pi-fw pi-comment', command: () => { this.index = 4; setVisibleRight(false) } },
         ];
 
         return (
@@ -103,6 +107,6 @@ export class  Main extends React.Component {
         );
     }
 
-   
+
 }
 
