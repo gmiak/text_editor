@@ -3,11 +3,20 @@ const express = require("express");
 const path = require("path");
 const docs = require("./routes/doc.route.js");
 
+// Import body parser, you should read about this on their git to understand it fully
+const parser = require('body-parser');
+const urlencodedParser = parser.urlencoded({extended : false});
+
 const PORT = process.env.PORT || 1337;
 const app = express();
 
+
 // Have Node serve the files for our built React app
 app.use(express.static(path.resolve(__dirname, '../client/build')));
+
+// before your routes
+app.use(parser .json());
+app.use(urlencodedParser) // This will parse you// before your routes
 
 
 app.get("/api", (req, res) => {

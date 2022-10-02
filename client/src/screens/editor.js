@@ -11,13 +11,13 @@ import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 
 
 // Template for add new document
-function AddNewDocumentTemplate(props) {
+function AddNewDocumentTemplate() {
     const [title, setTitle] = useState("");
     return (
         <div>
             <form onSubmit={async (event) => {
                 event.preventDefault();
-                props.addNewDocument(title);
+                addNewDocument(title);
             }}>
                 <p>
                     <label htmlFor="title">Title </label><br />
@@ -52,8 +52,19 @@ function documentsTemplate(data) {
     );
 }
 
-function addNewDocument() {
-
+async function addNewDocument(title) {
+    const response = await fetch("/document/create", {
+        method: "POST",
+        headers: {"content-type": "application/json",},
+        body: JSON.stringify({
+            title: title,
+            created: new Date().toUTCString(),
+            lastUpdate: new Date().toUTCString(),
+            text: ""
+        }),
+    });
+    const data = await response.json();
+    console.log("Document id: "+ data.id);
 }
 
 
@@ -88,7 +99,7 @@ const TextEditor = () => {
             <div className='space'>
             </div><div className='panelOne'>
                 <h6>New document</h6>
-                <AddNewDocumentTemplate addNewDocument={addNewDocument} />
+                <AddNewDocumentTemplate />
             </div>
 
             <div className='panelTwo'>

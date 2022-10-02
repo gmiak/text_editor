@@ -13,9 +13,10 @@ router.get("/", async (req, res) => {
 
 router.post("/create", async (req, res) => {
     const doc = await req.body;
+    console.log(doc);
     if (doc.title) {
         const add = await docModel.addDoc(doc);
-        res.status(201).json({ data: result});
+        res.status(201).json({ data: doc});
     } else {
         return res.status(400).json({
             errors: {
