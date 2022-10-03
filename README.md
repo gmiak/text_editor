@@ -38,13 +38,17 @@ The model layer holds the abstraction of the entity Document:
 
 ### Client
 
-The client-side is globally composed of 4 pages: Home, Edit, Files and Report.
+The client-side is globally composed of 5 pages: Home, Create, Update, Files and Report.
 
 - Home: Shows a presentation about myself
 
-- Edit: 
+- Create: 
 
-Allows the user to create, edit and delete a document. Note that you must click the Save button to load your changes, otherwise you will lose your new data if you leave the editor section. 
+Allows the user to create a document.
+
+- Update: 
+
+Allows the user to edit and delete a document. Note that you must click the Save button to load your changes, otherwise you will lose your new data if you leave the editor section.
 
 - Files: Shows all documents and their contents
 
