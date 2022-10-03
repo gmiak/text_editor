@@ -47,7 +47,7 @@ router.delete("/delete/(:id)", async (req, res) => {
     console.log(req.params.id);
     if (req.params.id) {
         const add = await docModel.delDoc(req.params.id);
-        res.status(201).json({ data: id});
+        res.status(201).json({ data: "success"});
     } else {
         return res.status(400).json({
             errors: {

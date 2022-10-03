@@ -54,7 +54,7 @@ const docs = {
         let db;
         try {
             db = await database.getDb();
-            const filter = { _ID: ObjectId(id) };
+            const filter = { _id: ObjectId(id) };
 
             await db.collection.deleteOne(filter);
         } catch (error) {

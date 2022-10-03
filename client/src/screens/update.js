@@ -94,7 +94,7 @@ export class UpdateDoc extends Component {
                 </div>
 
                 <div className="product-action">
-                    <><p><ButtonPrimereact icon="pi pi-pencil" label="Update" onClick={(event) => { this.editModeOn(data) }}></ButtonPrimereact></p><ButtonPrimereact className='deleteBtn' label="Delete" icon="pi pi-trash" onClick={(event) => { this.deleteDocument(data.id) }} /></>
+                    <><p><ButtonPrimereact icon="pi pi-pencil" label="Update" onClick={(event) => { this.editModeOn(data) }}></ButtonPrimereact></p><ButtonPrimereact className='deleteBtn' label="Delete" icon="pi pi-trash" onClick={(event) => { this.deleteDocument(data._id) }} /></>
                 </div>
             </div>
         );
@@ -123,7 +123,7 @@ export class UpdateDoc extends Component {
 
                     <ButtonToolbar aria-label="Toolbar with button groups">
                         <ButtonGroup className="me-2" aria-label="Second group">
-                            <Button onClick={async (event) => {
+                            <Button disabled={this.state.editMode ? false : true} onClick={async (event) => {
                                 event.preventDefault();
                                 this.updateDocument(this.state.doc._id, this.state.text2);
                                 this.editModeOff();
