@@ -7,7 +7,7 @@ In the server directory, you can run:
 
 ### npm run dev
 Runs the app in the development mode.
-Open http://localhost:8080 to view it in the browser.
+Open http://localhost:1337 to view it in the browser.
 
 ### Server
 
