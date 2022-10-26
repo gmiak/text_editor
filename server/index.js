@@ -16,11 +16,19 @@ app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 // before your routes
 app.use(parser .json());
-app.use(urlencodedParser) // This will parse you// before your routes
+app.use(urlencodedParser); // This will parse you// before your routes
 
 
 app.get("/api", (req, res) => {
-  res.json({ message: "Hello from server, my friend!" });
+  const message = [
+    {
+      1: "Hello my friend, from the server"
+    },
+    {
+      2: "Have a nice day"
+    }
+  ]
+  res.json({ data: message });
 });
 
 app.use("/document", docs);
@@ -45,7 +53,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
 
@@ -53,3 +61,5 @@ app.listen(PORT, () => {
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
 });
+
+module.exports = server;
