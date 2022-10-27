@@ -7,9 +7,9 @@ const database = {
             `mongodb+srv://${process.env.ATLAS_USERNAME}:${process.env.ATLAS_PASSWORD}` + 
             `@cluster0.24a6jqv.mongodb.net/?retryWrites=true&w=majority`;
 
-        if (process.env.NODE_ENV === "test") {
+        /*if (process.env.NODE_ENV === "test") {
             dsn = "mongodb://localhost:27017/test";
-        }
+        }*/
 
         const client = await mongo.connect(dsn, {
             useNewUrlParser: true,
