@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server/index.js",
     "build": "cd client && npm install && npm run build",
-    "test": "nyc --reporter=html --reporter=text mocha --timeout 100000 'server/tests/**/*.js'"
+    "test": "nyc --reporter=html --reporter=text mocha --timeout 100000 'server/tests/**/*.js' cd client && npm test"
   },
   "keywords": [],
   "author": "",
