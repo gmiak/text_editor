@@ -94,7 +94,7 @@ export class UpdateDoc extends Component {
                 </div>
 
                 <div className="product-action">
-                    <><p><ButtonPrimereact icon="pi pi-pencil" label="Update" onClick={(event) => { this.editModeOn(data) }}></ButtonPrimereact></p><ButtonPrimereact className='deleteBtn' label="Delete" icon="pi pi-trash" onClick={(event) => { this.deleteDocument(data._id) }} /></>
+                    <><p><ButtonPrimereact label="Update" icon="pi pi-pencil" onClick={(event) => { this.editModeOn(data) }}></ButtonPrimereact></p><ButtonPrimereact className='deleteBtn' label="Delete" icon="pi pi-trash" onClick={(event) => { this.deleteDocument(data._id) }} /></>
                 </div>
             </div>
         );
