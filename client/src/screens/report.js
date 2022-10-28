@@ -85,7 +85,44 @@ function Reports() {
 
       <section className="section_text">
         <h2>Kmom03</h2>
-        <p>Här är redovisningstexten</p>
+        <div className="div_text">
+          <h5>Mål?</h5>
+          <p className="text_align">Kursmoment gick bra att genomföra. Det var lärorikt och hjälpfullt att 
+          få en genomgång om olika typer av tester som finns och hur de används samt varför. Det har alltid 
+          varit lite förvirrande att skilja på olika typ av tester men efter denna kursmoment som kan jag 
+          säga att jag har fått en global syn på hur det ligger till i verkligheten. </p>
+        
+          <h5>Vad man har lärt sig?</h5>
+
+          <p className="text_align">Testerna är viktig del inom mjukvaruutveckling och det är något slags 
+          bevis på hur väl en mjukvara är konstruerad. Problemet som upptog under implementeringen av dessa 
+          tester, var att kunna skriva tester för en kod som initialt skrevs utan att ta hänsyn till att det 
+          ska testas. Jag upplevde att det var svårt att komma med konkreta use-cases som skulle testas både 
+          i client-side och i server-side. Det var inte lätt, i efteråt, att veta vilken del av kod som ska 
+          testas och varför ska den testas.
+          </p>
+          <p className="text_align">
+          Det hade eventuellt funkat om jag började tänka på tester från start och skrivit min kod på ett sätt 
+          som senare underlätta testning. Ett exempel på det, är när tester som är skriven för att testa filen 
+          server/index.js testar implicit funktionerna som ligger i filen server/routes/doc.route.js. Målet med 
+          att tester ska täcka 100% (code coverage) blir svårt att uppnå. Ett alternativ hade varit att börja med 
+          tester sen kursmoment 1 i och med att codebasen växer också i takt med implementationen. Detta hade hjälpt 
+          att undvika hamna i den situationen där man skriver temporära tester som skrivs “bara för att testa”.
+          </p>
+          
+          <p>
+            Ytterligare en lösning till detta, kan vara att jag gör refaktorering på vissa ställe samt anpassa min 
+          kod till testning. Det kommer nog kräva användningen av olika pattern som dependency injection och humble 
+          object för att separera kod från olika filer som är ihopsatta som i sin tur kommer underlätta testning 
+          och öka code coverage.
+          </p>
+          <p>
+          När det gäller drivsättning så fortsätter jag driv sätta min applikation på heroku och kommer kolla problemet 
+          med Azure i slutet av kursen för att undvika lägga ytterligare tid för debugging. Jag ligger som sagt i ofas 
+          med kursmomenten och behöver därför jobba i kap.
+          </p>
+
+        </div>
       </section>
 
       <Divider />
