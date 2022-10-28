@@ -7,7 +7,7 @@
     "start": "node server/index.js",
     "build": "cd client && npm install && npm run build",
     "test": "nyc --reporter=html --reporter=text mocha --timeout 100000 'server/tests/**/*.js'",
-    "test-client": "cd client && npm test"
+    "test-client": "cd client && npm install && npm run test"
   },
   "keywords": [],
   "author": "",
