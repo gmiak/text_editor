@@ -10,6 +10,22 @@ const urlencodedParser = parser.urlencoded({extended : false});
 const PORT = process.env.PORT || 1337;
 const app = express();
 
+// Socket -------------
+const httpServer = require("http").createServer(app);
+
+const io = require("socket.io")(httpServer, {
+  cors: {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"]
+  }
+});
+
+io.sockets.on('connection', function(socket) {
+  console.log(socket.id); 
+});
+
+
+// ------------------
 
 // Have Node serve the files for our built React app
 app.use(express.static(path.resolve(__dirname, '../client/build')));
@@ -53,7 +69,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-const server = app.listen(PORT, () => {
+const server = httpServer.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
 
